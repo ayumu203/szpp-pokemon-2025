@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
+
+body {
+    margin: 0;
+    background-color: #004050;
+    background-image: repeating-linear-gradient(
+        transparent,
+        transparent 14px,
+        #008070 14px,
+        #008070 15px
+    );
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.pokeball {
+    width: 100vw;
+    height: 100vw;
+    box-sizing: border-box;
+    max-width: none;
+    max-height: none;
+    border-radius: 50%;
+    background: linear-gradient(to bottom, #ff1f1f 50%, #ffffff 50%);
+    border: 2.5vw solid #000000;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%) rotate(90deg);
+    box-shadow: 0 0 30px rgba(0,0,0,0.6);
+    z-index: 10;
+}
+
+.pokeball::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 100%;
+    height: calc(0.8vw);
+    background: #000000;
+    z-index: 11;
+}
+
+.pokeball::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: calc(24vw);
+    height: calc(24vw);
+    max-width: 160px;
+    max-height: 160px;
+    background: #ffffff;
+    border: calc(2vw) solid #000000;
+    border-radius: 50%;
+    box-shadow: inset 0 0 15px rgba(0,0,0,0.4);
+    z-index: 12;
+}
+
+@keyframes disappear-animation {
+  70% {
+    transform: translateX(-50%) rotate(0deg);
+    width: 25vw;
+    height: 25vw;
+    border-width: 1vw;
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-50%) rotate(0deg);
+    width: 25vw;
+    height: 25vw;
+    border-width: 1vw;
+    opacity: 0;
+  }
+}
+
+.pokeball.start-animation {
+  animation: disappear-animation 1.5s forwards;
+}
+
+.pokeball.start-animation::after {
+  width: calc(18vw);
+  height: calc(18vw);
+  border-width: calc(1.5vw);
+  max-width: 100px;
+  max-height: 100px;
+}
+
+#pokemonSearchFormContainer {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  background-color: #f0f8f8;
+  border-bottom: 2px solid #90a090;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  box-sizing: border-box;
+}
+
+#pokemonSearchForm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  padding: 10px;
+}
+
+#pokemonName, button#pokemonSearchButton {
+  font-family: 'DotGothic16', sans-serif;
+  font-size: 16px;
+  padding: 8px 12px;
+  border-radius: 0;
+  box-sizing: border-box;
+}
+
+#pokemonName {
+  background-color: #fff;
+  color: #333;
+  border: 1px solid #aaa;
+  flex-grow: 1;
+  max-width: 400px;
+}
+
+#pokemonName::placeholder {
+  color: #999;
+}
+
+button#pokemonSearchButton {
+  background-color: #d0e0d0;
+  color: #333;
+  cursor: pointer;
+  border: 1px solid #aaa;
+  transition: background-color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+}
+
+button#pokemonSearchButton:hover {
+  background-color: #b8c8b8;
+}
+
+button#pokemonSearchButton svg {
+  width: 16px;
+  height: 16px;
+}
+
+#pokemonInfoContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 20px;
+  position: fixed;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80vw;
+  max-width: 600px;
+  background-color: #e8f8f8;
+  border: 2px solid #a0c0c0;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  text-align: left;
+  z-index: 90;
+  color: #1e3a3a;
+}
+
+#pokemonImage {
+  width: 150px;
+  height: 150px;
+  background-color: #fff;
+  border: 1px solid #a0c0c0;
+  image-rendering: pixelated;
+}
+
+#pokemonDetails {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#pokemonDetails p {
+  margin: 0;
+  font-family: 'DotGothic16', sans-serif;
+  font-size: 16px;
+}
+
+.info-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #c0e0e0;
+}
+
+#pokemonDescription {
+  text-align: left;
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+/* タイプ表示用のバッジスタイルを追加 */
+.type-badge {
+  color: #fff;
+  padding: 3px 10px;
+  margin-left: 5px;
+  border-radius: 5px;
+  font-size: 14px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+}
