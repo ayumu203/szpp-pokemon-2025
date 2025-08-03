@@ -20,13 +20,16 @@ VSCodeの拡張機能でLive Serverをインストールし、右下の「Go liv
 5. ポケモンの情報を表示
 
 ## クローンしたファイルの動作確認
+
 ### 実行画面
+`http://localhost:5500/pokemon-wiki/`にアクセスして動作確認をしよう. \
 ![alt text](./image/image.png)
 クリックをすると...
 ![alt text](./image/image-1.png)
 入力フォームはないね...
 ![alt text](./image/image-2.png)
-ちなみに最終完成形はこんな感じ～
+ちなみに最終完成形はこんな感じ～ \
+`http://localhost:5500/pokemon-wiki/index-final.html`にアクセスすると見れるよ.
 
 ## 入力フォームの作成
 今回もみんなで一緒に書いていこうか
